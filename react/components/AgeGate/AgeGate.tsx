@@ -1,15 +1,20 @@
 import React, {useEffect, useState} from 'react'
-import { ExtensionPoint } from 'vtex.render-runtime'
 import { useCookies } from 'react-cookie'
+
 import styles from './AgeGate.css'
 
 const AgeGate = () => {
+
+
 	const [cookies, setCookie] = useCookies(['ageGate'])
 	const [day, setDay] = useState(`0`)
 	const [mounth, setMounth] = useState(`0`)
 	const [year, setYear] = useState(`0`)
 	const [isRemember, setRemember] = useState(false)
 	const [isAccess, setAccess] = useState(true)
+	const [langueage, setLanguage] = useState('en')
+
+
 	const handleClick = () => {
 		if(isRemember) {
 			let expiresDate = new Date()
@@ -36,38 +41,48 @@ const AgeGate = () => {
 		}
 	}, [])
 
+
+	const optionChange = (evt: any) =>{
+	setLanguage(evt.target.value)
+	}
+
 	return (
 		<div>
-			{cookies.ageGate == 'false' && (
+			{/*{cookies.ageGate == 'false' && (*/}
 				<div className={styles.ageGateWrapper}>
 					<div className={styles.ageGateContainer}>
+						<select className={styles.langChooser} onChange={optionChange}>
+							<option selected={true} disabled>Choose your language</option>
+							<option value={'fr'}>France</option>
+							<option value={'en'}>English</option>
+							<option value={'nl'}>Dutch</option>
+						</select>
 						<div className={`${styles.ageGateLogoContainer} flex`}>
-								<img src="https://abiukb2b.vtexassets.com/assets/vtex.file-manager-graphql/images/bbf1e82e-4f97-4522-87ab-04d2db76e4f9___6fac24d876adbe6ff74517a19cb28883.png"></img>
+								<img className={styles.logoImage} src="https://abibewebshop.vtexassets.com/assets/vtex.file-manager-graphql/images/e5d4e26a-37e0-4eab-a6b6-972645837c2a___162d0ac941edefc7a51aa1963ebbf111.png"></img>
 						</div>
 						{isAccess ? <div className={styles.ageGateUnderAge}>
-						<ExtensionPoint id="rich-text" />
-						<p>Are you over Legal Drinking Age?</p>
-
-						<div className={styles.inputContainer}>
+							<p className={styles.logoText}>{langueage === 'en' ? `Are you over Legal Drinking Age?` : langueage === 'fr' ? `Avez-vous dépassé l'âge légal pour boire?` : `Bent u ouder dan de wettelijke drinkleeftijd?`}</p>
+								<p  className={styles.ageQuestion}>{langueage === 'en' ? `Please enter your date of birth` : langueage === 'fr' ? 'Veuillez entrer votre date de naissance' : 'Voer je geboortedatum in'}</p>
+							<div className={styles.inputContainer}>
 							<input className={styles.dataInput} onChange={e => setDay(e.target.value)} autoFocus min={1} max={31} type="number" name="agegate-d" maxLength={2} placeholder="dd" tabIndex={0}></input>
 							<input className={styles.dataInput} onChange={e => setMounth(e.target.value)} min={1} max={12} type="number" name="agegate-m" maxLength={2} placeholder="mm" tabIndex={0}></input>
 							<input className={styles.dataInput} onChange={e => setYear(e.target.value)} min={0} type="number" name="agegate-y" maxLength={4} placeholder="yyyy" tabIndex={0}></input>
 						</div>
-							<label>Remember me*
-								<input id="remember" type="checkbox" onChange={()=> setRemember(!isRemember)}></input>
-							</label>
+							<input className={styles.checkboxRemember} id="remember" type="checkbox" onChange={()=> setRemember(!isRemember)}></input>
+							<label htmlFor={'remember'} className={styles.ageLable}>{langueage === 'en' ? `Remember me` : langueage === 'fr' ? 'Souviens-toi de moi' : 'Onthoud mij'}</label>
+
 							 <button className={styles.ageGateButton} onClick={onClickConfirm}>
-								CONTINUE
+								{langueage === 'en' ? `CONTINUE` : langueage === 'fr' ? 'CONTINUER' : 'DOORGAAN MET'}
 						</button>
-						</div> : <div><p>Sorry, you must be 18 years or older to visit this website</p></div>}
+						</div> : <div><p className={styles.unswer}>{langueage === 'en' ? `Sorry, you must be 18 years or older to visit this website` : langueage === 'fr' ? 'Désolé, vous devez être âgé d`au moins 18 ans pour visiter ce site Web' : 'Sorry, je moet 18 jaar of ouder zijn om deze website te bezoeken'}</p></div>}
 						<div className={styles.textContainer}>
-							<p className={styles.descriptionBottomText}>© 2021 AB InBev UK Limited T/A Budweiser Brewing Group UK&I</p>
-							<p className={styles.descriptionBottomText}>For the facts <a href='https://www.drinkaware.co.uk/'>drinkaware.co.uk</a></p>
-							<p className={styles.descriptionBottomText}>Please do not share content of this site with anyone underage</p>
+							<p className={styles.descriptionBottomText}>{langueage === 'en' ? `© 2021 Anheuser-Busch InBev` : langueage === 'fr' ? '© 2021 Anheuser-Busch InBev' : '© 2021 Anheuser-Busch InBev'}</p>
+							<p className={styles.descriptionBottomText}>{langueage === 'en' ? `A beer brewed with knowledge is tasted with wisdom` : langueage === 'fr' ? 'Une bière brassée avec savoir se déguste avec sagesse' : 'Een bier gebrouwen met kennis wordt met wijsheid geproefd'}</p>
+							<p className={styles.descriptionBottomText}>{langueage === 'en' ? `Please do not share the content of this site with minors` : langueage === 'fr' ? 'Merci de ne pas partager le contenu de ce site avec des mineurs' : 'Deel de inhoud van deze site niet met minderjarigen'}</p>
 						</div>
 					</div>
 				</div>
-			)}
+			{/*)}*/}
 		</div>
 	)
 }
