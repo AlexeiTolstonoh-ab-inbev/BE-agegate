@@ -48,7 +48,7 @@ const AgeGate = () => {
 
 	return (
 		<div>
-			{/*{cookies.ageGate == 'false' && (*/}
+			{cookies.ageGate == 'false' && (
 				<div className={styles.ageGateWrapper}>
 					<div className={styles.ageGateContainer}>
 						<select className={styles.langChooser} onChange={optionChange}>
@@ -82,7 +82,7 @@ const AgeGate = () => {
 						</div>
 					</div>
 				</div>
-			{/*)}*/}
+			)}
 		</div>
 	)
 }
