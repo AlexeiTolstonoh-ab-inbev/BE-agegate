@@ -6,7 +6,7 @@ import styles from './AgeGate.css'
 const AgeGate = () => {
 
 
-	const [cookies, setCookie] = useCookies(['ageGate'])
+	const [cookies, setCookie] = useCookies(['BEageGate'])
 	const [day, setDay] = useState(`0`)
 	const [mounth, setMounth] = useState(`0`)
 	const [year, setYear] = useState(`0`)
@@ -19,11 +19,12 @@ const AgeGate = () => {
 		if(isRemember) {
 			let expiresDate = new Date()
 			expiresDate.setDate(expiresDate.getDate() + 60)
-			setCookie('ageGate', true, {expires: expiresDate})
+			setCookie('BEageGate', true, {expires: expiresDate})
 		} else {
-			setCookie('ageGate', true)
+			setCookie('BEageGate', true)
 		}
 	}
+
 	const onClickConfirm = () => {
 		const msIn18Years = 568025136000
 		const nowDate = Date.now()
@@ -36,11 +37,11 @@ const AgeGate = () => {
 		}
 	}
 	useEffect(() => {
-		if (!cookies.ageGate) {
-			setCookie('ageGate', false)
+		if (!cookies.BEageGate) {
+			setCookie('BEageGate', false)
 		}
-	}, [])
 
+	}, [])
 
 	const optionChange = (evt: any) =>{
 	setLanguage(evt.target.value)
@@ -48,7 +49,7 @@ const AgeGate = () => {
 
 	return (
 		<div>
-			{cookies.ageGate == 'false' && (
+			{cookies.BEageGate == 'false' && (
 				<div className={styles.ageGateWrapper}>
 					<div className={styles.ageGateContainer}>
 						<select className={styles.langChooser} onChange={optionChange}>
