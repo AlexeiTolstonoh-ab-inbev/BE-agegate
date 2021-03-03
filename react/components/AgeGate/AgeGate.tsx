@@ -54,7 +54,7 @@ const AgeGate = () => {
 					<div className={styles.ageGateContainer}>
 						<select className={styles.langChooser} onChange={optionChange}>
 							<option selected={true} disabled>Choose your language</option>
-							<option value={'fr'}>France</option>
+							<option value={'fr'}>French</option>
 							<option value={'en'}>English</option>
 							<option value={'nl'}>Dutch</option>
 						</select>
