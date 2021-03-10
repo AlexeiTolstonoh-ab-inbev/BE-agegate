@@ -111,6 +111,7 @@ visibility: hidden;
 
 .ageGateLogoContainer {
 	margin: 0 auto;
+	max-height: 100px;
 }
 
 .ageGateLogoImage {
@@ -122,6 +123,7 @@ visibility: hidden;
 	margin: 0 auto;
 	margin-bottom: 0px;
 	margin-top: 0px;
+	max-height: 60px;
 }
 
 .textContainer {
@@ -210,6 +212,7 @@ visibility: hidden;
 	}
 	.logoImage {
 		width: 90%;
+		max-height: 60px;
 		margin: 0 auto;
 		margin-bottom: 20px;
 		margin-top: 20px;
