@@ -12,8 +12,13 @@ const AgeGate = () => {
 	const [year, setYear] = useState(`0`)
 	const [isRemember, setRemember] = useState(false)
 	const [isAccess, setAccess] = useState(true)
-	const [langueage, setLanguage] = useState('en')
+	const [langueage, setLanguage] = useState('')
 
+	useEffect(() => {
+		const lang =window.location.href
+		const a =lang.substr(-2,2)
+		setLanguage(a)
+	}, [])
 
 	const handleClick = () => {
 		if(isRemember) {
@@ -43,21 +48,12 @@ const AgeGate = () => {
 
 	}, [])
 
-	const optionChange = (evt: any) =>{
-	setLanguage(evt.target.value)
-	}
 
 	return (
 		<div>
-			{cookies.BEageGate == 'false' && (
-				<div className={styles.ageGateWrapper}>
+			{ langueage !== '' &&(
+ 				<div className={styles.ageGateWrapper}>
 					<div className={styles.ageGateContainer}>
-						<select className={styles.langChooser} onChange={optionChange}>
-							<option selected={true} disabled>Choose your language</option>
-							<option value={'fr'}>French</option>
-							<option value={'en'}>English</option>
-							<option value={'nl'}>Dutch</option>
-						</select>
 						<div className={`${styles.ageGateLogoContainer} flex`}>
 								<img className={styles.logoImage} src="https://abibewebshop.vtexassets.com/assets/vtex.file-manager-graphql/images/e5d4e26a-37e0-4eab-a6b6-972645837c2a___162d0ac941edefc7a51aa1963ebbf111.png"></img>
 						</div>
@@ -86,6 +82,7 @@ const AgeGate = () => {
 			)}
 		</div>
 	)
+
 }
 
 AgeGate.schema = {

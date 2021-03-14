@@ -76,18 +76,19 @@ visibility: hidden;
 	position: absolute;
 	top: 0;
 	left: -35px;
-	width: 26px;
-	height: 26px;
+	width: 20px;
+	height: 20px;
 	border: 2px solid #ff4122;
 }
 .checkboxRemember:checked+ .ageLable::after{
 	content: '\2714';
 	position: absolute;
 	top: 0;
-	left: -26px;
-	width: 26px;
-	height: 26px;
+	left: -31px;
+	width: 20px;
+	height: 20px;
 	color: red;
+	font-size: 22px;
 }
 
 .ageGateUnderAge {
@@ -155,10 +156,10 @@ visibility: hidden;
 	width: 120px;
 	height: 50px;
 	margin: 5px;
-	padding: 12px 0 0;
+	padding: 12px 0;
 	text-align: center;
 	vertical-align: middle;
-	font-size: 32px;
+	font-size: 35px;
 	color: rgb(58,3,45);
 	border: 2px solid #ff4122;
 }
