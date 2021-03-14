@@ -16,7 +16,7 @@ const AgeGate = () => {
 
 	useEffect(() => {
 		const lang =window.location.href
-		const a =lang.substr(-2,2)
+		const a =lang.substr(-3,2)
 		setLanguage(a)
 	}, [])
 
