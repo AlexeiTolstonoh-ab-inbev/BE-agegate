@@ -51,7 +51,7 @@ const AgeGate = () => {
 
 	return (
 		<div>
-			{ langueage !== '' &&(
+			{cookies.BEageGate == 'false' && langueage !== '' &&(
  				<div className={styles.ageGateWrapper}>
 					<div className={styles.ageGateContainer}>
 						<div className={`${styles.ageGateLogoContainer} flex`}>
