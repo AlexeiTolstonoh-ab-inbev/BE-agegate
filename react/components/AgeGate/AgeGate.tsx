@@ -51,7 +51,7 @@ const AgeGate = () => {
 
 	return (
 		<div>
-			{cookies.BEageGate == 'false' && langueage !== '' &&(
+			{ langueage !== '' &&(
  				<div className={styles.ageGateWrapper}>
 					<div className={styles.ageGateContainer}>
 						<div className={`${styles.ageGateLogoContainer} flex`}>
@@ -73,7 +73,6 @@ const AgeGate = () => {
 						</button>
 						</div> : <div><p className={styles.unswer}>{langueage === 'en' ? `Sorry, you must be 18 years or older to visit this website` : langueage === 'fr' ? 'Désolé, vous devez être âgé d`au moins 18 ans pour visiter ce site Web' : 'Sorry, je moet 18 jaar of ouder zijn om deze website te bezoeken'}</p></div>}
 						<div className={styles.textContainer}>
-							<p className={styles.descriptionBottomText}>{langueage === 'en' ? `© 2021 Anheuser-Busch InBev` : langueage === 'fr' ? '© 2021 Anheuser-Busch InBev' : '© 2021 Anheuser-Busch InBev'}</p>
 							<p className={styles.descriptionBottomText}>{langueage === 'en' ? `A beer brewed with knowledge is tasted with wisdom` : langueage === 'fr' ? 'Une bière brassée avec savoir se déguste avec sagesse' : 'Een bier gebrouwen met kennis wordt met wijsheid geproefd'}</p>
 							<p className={styles.descriptionBottomText}>{langueage === 'en' ? `Please do not share the content of this site with minors` : langueage === 'fr' ? 'Merci de ne pas partager le contenu de ce site avec des mineurs' : 'Deel de inhoud van deze site niet met minderjarigen'}</p>
 						</div>
