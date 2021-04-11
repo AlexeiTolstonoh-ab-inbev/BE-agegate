@@ -54,46 +54,54 @@ const AgeGate = () => {
 
 	const changeDay =(e: any)=>{
 		let day = e.target.value
-		if(day < 1){
-			day = 1
-		}
-		else if(day > 31){
-			day = 31
-		}
-		setDay(day)
+
 		if(day.length > 1){
+			if(day < 1){
+				day = 1
+			}
+			else if(day > 31){
+				day = 31
+			}
+			dayInput.current.value = day
+			setDay(day)
 			mounthInput.current.focus()
 		}
 	}
 	const changeMounth =(e: any)=>{
 		let mounth = e.target.value
-		if(mounth < 1){
-			mounth = 1
-		}
-		else if(mounth > 12){
-			mounth = 12
-		}
-		setMounth(mounth)
+
 		if(mounth.length > 1){
+			if(mounth < 1){
+				mounth = 1
+			}
+			else if(mounth > 12){
+				mounth = 12
+			}
+			mounthInput.current.value = mounth
+			setMounth(mounth)
+
 			yearInput.current.focus()
 		}
 	}
 	const changeYear =(e: any)=>{
 		let year = e.target.value
-		if(year < 1900){
+
+
+		if(year.length > 3){
+			if(year < 1900){
 			year = 1900
 		}
 		else if(year > 2020){
 			year = 2020
 		}
-		setYear(year)
-		if(year.length > 3){
+			yearInput.current.value = year
+			setYear(year)
 			rememberMeCheckbox.current.focus()
 		}
 	}
 	return (
 		<div>
-			{cookies.BEageGate == 'false' && langueage !== '' &&(
+			{cookies.BEageGate == 'false' &&  langueage !== '' &&(
  				<div className={styles.ageGateWrapper}>
 					<div className={styles.ageGateContainer}>
 						<div className={`${styles.ageGateLogoContainer} flex`}>
