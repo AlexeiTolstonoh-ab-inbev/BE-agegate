@@ -1,7 +1,7 @@
 {
   "vendor": "abibewebshop",
   "name": "be-agegate",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "title": "age-gate",
   "description": "AgeGate Component",
   "defaultLocale": "pt-BR",
