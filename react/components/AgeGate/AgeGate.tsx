@@ -101,11 +101,11 @@ const AgeGate = () => {
 	}
 	return (
 		<div>
-			{cookies.BEageGate == 'false' &&  langueage !== '' &&(
+			{cookies.BEageGate == 'false' && langueage !== '' &&(
  				<div className={styles.ageGateWrapper}>
 					<div className={styles.ageGateContainer}>
 						<div className={`${styles.ageGateLogoContainer} flex`}>
-								<img className={styles.logoImage} src="https://abibewebshop.vtexassets.com/assets/vtex.file-manager-graphql/images/e5d4e26a-37e0-4eab-a6b6-972645837c2a___162d0ac941edefc7a51aa1963ebbf111.png"></img>
+								<img className={styles.logoImage} src="https://abibewebshop.vtexassets.com/assets/vtex.file-manager-graphql/images/b51b748e-9c50-4248-9b51-68846a2d8359___014546075148f2f1404a41002ba78895.png"></img>
 						</div>
 						{isAccess ? <div className={styles.ageGateUnderAge}>
 							<p className={styles.logoText}>{langueage === 'en' ? `Are you over Legal Drinking Age?` : langueage === 'fr' ? `Avez-vous dépassé l'âge légal pour boire?` : `Bent u ouder dan de wettelijke drinkleeftijd?`}</p>
