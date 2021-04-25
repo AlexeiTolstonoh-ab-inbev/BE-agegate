@@ -122,7 +122,7 @@ visibility: hidden;
 }
 
 .logoImage {
-	width: 160px;
+	width: 130px;
 	margin: 0 auto;
 	margin-bottom: 0px;
 	margin-top: 0px;
@@ -215,7 +215,7 @@ visibility: hidden;
 		justify-content: space-evenly;
 	}
 	.logoImage {
-		width: 160px;
+		width: 130px;
 		max-height: 60px;
 		margin: 0 auto;
 		margin-bottom: 20px;
