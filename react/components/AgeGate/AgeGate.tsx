@@ -19,7 +19,7 @@ const AgeGate = () => {
 
 	useEffect(() => {
 		const lang =window.location.href
-		const path =lang.substr(-3,2)
+		const path =lang.substr(-2,2)
 		setLanguage(path)
 	}, [])
 
@@ -99,6 +99,7 @@ const AgeGate = () => {
 			rememberMeCheckbox.current.focus()
 		}
 	}
+
 	return (
 		<div>
 			{cookies.BEageGate == 'false' && langueage !== '' &&(
@@ -109,17 +110,17 @@ const AgeGate = () => {
 						</div>
 						{isAccess ? <div className={styles.ageGateUnderAge}>
 							<p className={styles.logoText}>{langueage === 'en' ? `Are you over Legal Drinking Age?` : langueage === 'fr' ? `Avez-vous dépassé l'âge légal pour boire?` : `Bent u ouder dan de wettelijke drinkleeftijd?`}</p>
-								<p  className={styles.ageQuestion}>{langueage === 'en' ? `Please enter your date of birth` : langueage === 'fr' ? 'Veuillez entrer votre date de naissance' : 'Voer je geboortedatum in'}</p>
+								<p  className={styles.ageQuestion}>{langueage === 'en' ? `Please enter your date of birth` : langueage === 'fr' ? 'Veuillez entrer votre date de naissance' : 'Bent u 18 jaar of ouder ?'}</p>
 							<div className={styles.inputContainer}>
 							<input ref={dayInput} className={styles.dataInput} onChange={e =>  changeDay(e)} autoFocus  type="text" name="agegate-d" maxLength={2} placeholder="dd" tabIndex={0}></input>
 							<input ref={mounthInput} className={styles.dataInput} onChange={e => changeMounth(e)} type="text" name="agegate-m" maxLength={2} placeholder="mm" tabIndex={0}></input>
-							<input ref={yearInput} className={styles.dataInput} onChange={e => changeYear(e)}type="text" name="agegate-y" maxLength={4} placeholder="yyyy" tabIndex={0}></input>
+							<input ref={yearInput} className={styles.dataInput} onChange={e => changeYear(e)}type="text" name="agegate-y" maxLength={4} placeholder={langueage === 'nl'? 'jjjj' : 'yyyy'} tabIndex={0}></input>
 						</div>
 							<input className={styles.checkboxRemember} id="remember" type="checkbox" onChange={()=> setRemember(!isRemember)}></input>
 							<label htmlFor={'remember'} className={styles.ageLable}>{langueage === 'en' ? `Remember me` : langueage === 'fr' ? 'Souviens-toi de moi' : 'Onthoud mij'}</label>
 
 							 <button ref={rememberMeCheckbox} className={styles.ageGateButton} onClick={onClickConfirm}>
-								{langueage === 'en' ? `CONTINUE` : langueage === 'fr' ? 'CONTINUER' : 'DOORGAAN MET'}
+								{langueage === 'en' ? `CONTINUE` : langueage === 'fr' ? 'CONTINUER' : 'DOORGAAN'}
 						</button>
 						</div> : <div><p className={styles.unswer}>{langueage === 'en' ? `Sorry, you must be 18 years or older to visit this website` : langueage === 'fr' ? 'Désolé, vous devez être âgé d`au moins 18 ans pour visiter ce site Web' : 'Sorry, je moet 18 jaar of ouder zijn om deze website te bezoeken'}</p></div>}
 						<div className={styles.textContainer}>
