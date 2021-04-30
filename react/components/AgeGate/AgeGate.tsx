@@ -124,8 +124,8 @@ const AgeGate = () => {
 						</button>
 						</div> : <div><p className={styles.unswer}>{langueage === 'en' ? `Sorry, you must be 18 years or older to visit this website` : langueage === 'fr' ? 'Désolé, vous devez être âgé d`au moins 18 ans pour visiter ce site Web' : 'Sorry, je moet 18 jaar of ouder zijn om deze website te bezoeken'}</p></div>}
 						<div className={styles.textContainer}>
-							<p className={styles.descriptionBottomText}>{langueage === 'en' ? `A beer brewed with knowledge is tasted with wisdom` : langueage === 'fr' ? 'Une bière brassée avec savoir se déguste avec sagesse' : 'Een bier gebrouwen met kennis wordt met wijsheid geproefd'}</p>
-							<p className={styles.descriptionBottomText}>{langueage === 'en' ? `Please do not share the content of this site with minors` : langueage === 'fr' ? 'Merci de ne pas partager le contenu de ce site avec des mineurs' : 'Deel de inhoud van deze site niet met minderjarigen'}</p>
+							<p className={styles.descriptionBottomText}>{langueage === 'en' ? `Beer brewed with love should be drunk with good sense.` : langueage === 'fr' ? 'Notre savoir-faire se déguste avec sagesse.' : 'Ons vakmanschap drink je met verstand.'}</p>
+							<p className={styles.descriptionBottomText}>{langueage === 'en' ? `Don't share this site with people under drinking age. ` : langueage === 'fr' ? 'Ne partagez pas ce site avec des mineurs.' : 'Deel de inhoud van deze site niet met minderjarigen.'}</p>
 						</div>
 					</div>
 				</div>
