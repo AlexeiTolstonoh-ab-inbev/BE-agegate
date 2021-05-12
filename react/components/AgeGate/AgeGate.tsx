@@ -19,8 +19,8 @@ const AgeGate = () => {
 
 	useEffect(() => {
 		const lang =window.location.href
-		const path =lang.substr(-3,2)
-
+		//const path =lang.substr(-3,2)
+		const path =lang.substr(-2,2)
 		if(path === 'en' || path === 'fr' || path === 'nl'){
 			setLanguage(path)
 		} else {
@@ -42,12 +42,18 @@ const AgeGate = () => {
 	const onClickConfirm = () => {
 		const msIn18Years = 568025136000
 		const nowDate = Date.now()
- 		const inputDateInMs = Date.parse(`${Number(year)}-${Number(mounth)}-${Number(day)}`)
-		debugger
-		const isLegal = nowDate - inputDateInMs >= msIn18Years ? true : false
-		if(!isLegal) {
+		const currentMounth = Number(mounth)<10? `0${Number(mounth)}`: Number(mounth)
+		const currentDay = Number(day)<10? `0${Number(day)}`: Number(day)
+		const dateString = `${Number(year)}-${currentMounth}-${currentDay}T24:00:00`
+ 		const inputDateInMs = Date.parse(dateString)
+		const ageInMs = nowDate - inputDateInMs
+console.log(ageInMs)
+		if(ageInMs < msIn18Years) {
+			console.log('no')
 			setAccess(false)
-		} else if(isLegal){
+
+		} else if(ageInMs >= msIn18Years){
+			console.log('yes')
 			handleClick()
 		}
 	}
@@ -60,7 +66,6 @@ const AgeGate = () => {
 
 	const changeDay =(e: any)=>{
 		let day = e.target.value
-
 		if(day.length > 1){
 			if(day < 1){
 				day = 1
@@ -105,7 +110,6 @@ const AgeGate = () => {
 			rememberMeCheckbox.current.focus()
 		}
 	}
-
 	return (
 		<div>
 			{cookies.BEageGate == 'false' && langueage !== '' &&(
@@ -118,9 +122,9 @@ const AgeGate = () => {
 							<p className={styles.logoText}>{langueage === 'en' ? `Are you over Legal Drinking Age?` : langueage === 'fr' ? `Avez-vous dépassé l'âge légal pour boire?` : `Bent u ouder dan de wettelijke drinkleeftijd?`}</p>
 								<p  className={styles.ageQuestion}>{langueage === 'en' ? `Please enter your date of birth` : langueage === 'fr' ? 'Veuillez entrer votre date de naissance' : 'Bent u 18 jaar of ouder ?'}</p>
 							<div className={styles.inputContainer}>
-							<input ref={dayInput} className={styles.dataInput} onChange={e =>  changeDay(e)} autoFocus  type="text" name="agegate-d" maxLength={2} placeholder="dd" tabIndex={0}></input>
+							<input ref={dayInput} className={styles.dataInput} onChange={e =>  changeDay(e)} autoFocus  type="text" name="agegate-d" maxLength={2} placeholder={langueage === 'fr'? 'jj' : 'dd'} tabIndex={0}></input>
 							<input ref={mounthInput} className={styles.dataInput} onChange={e => changeMounth(e)} type="text" name="agegate-m" maxLength={2} placeholder="mm" tabIndex={0}></input>
-							<input ref={yearInput} className={styles.dataInput} onChange={e => changeYear(e)}type="text" name="agegate-y" maxLength={4} placeholder={langueage === 'nl'? 'jjjj' : 'yyyy'} tabIndex={0}></input>
+							<input ref={yearInput} className={styles.dataInput} onChange={e => changeYear(e)}type="text" name="agegate-y" maxLength={4} placeholder={langueage === 'fr'? 'aaaa' : langueage === 'nl'? 'jjjj' : 'yyyy'} tabIndex={0}></input>
 						</div>
 							<input className={styles.checkboxRemember} id="remember" type="checkbox" onChange={()=> setRemember(!isRemember)}></input>
 							<label htmlFor={'remember'} className={styles.ageLable}>{langueage === 'en' ? `Remember me` : langueage === 'fr' ? 'Souviens-toi de moi' : 'Onthoud mij'}</label>
@@ -130,8 +134,8 @@ const AgeGate = () => {
 						</button>
 						</div> : <div><p className={styles.unswer}>{langueage === 'en' ? `Sorry, you must be 18 years or older to visit this website` : langueage === 'fr' ? 'Désolé, vous devez être âgé d`au moins 18 ans pour visiter ce site Web' : 'Sorry, je moet 18 jaar of ouder zijn om deze website te bezoeken'}</p></div>}
 						<div className={styles.textContainer}>
-							<p className={styles.descriptionBottomText}>{langueage === 'en' ? `Beer brewed with love should be drunk with good sense.` : langueage === 'fr' ? 'Notre savoir-faire se déguste avec sagesse.' : 'Ons vakmanschap drink je met verstand.'}</p>
-							<p className={styles.descriptionBottomText}>{langueage === 'en' ? `Don't share this site with people under drinking age. ` : langueage === 'fr' ? 'Ne partagez pas ce site avec des mineurs.' : 'Deel de inhoud van deze site niet met minderjarigen.'}</p>
+							<p className={styles.descriptionBottomText}>{langueage === 'en' ? `Our craftmanship is enjoyed responsibly.` : langueage === 'fr' ? 'Notre savoir-faire se déguste avec sagesse.' : 'Ons vakmanschap drink je met verstand.'}</p>
+							<p className={styles.descriptionBottomText}>{langueage === 'en' ? `Don't share this site with people under drinking age.` : langueage === 'fr' ? 'Ne partagez pas ce site avec des mineurs.' : 'Deel de inhoud van deze site niet met minderjarigen.'}</p>
 						</div>
 					</div>
 				</div>
