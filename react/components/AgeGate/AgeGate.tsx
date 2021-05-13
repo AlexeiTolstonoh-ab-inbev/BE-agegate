@@ -20,7 +20,7 @@ const AgeGate = () => {
 	useEffect(() => {
 		const lang =window.location.href
 		//const path =lang.substr(-3,2)
-		const path =lang.substr(-2,2)
+		const path =lang.substr(-3,2)
 		if(path === 'en' || path === 'fr' || path === 'nl'){
 			setLanguage(path)
 		} else {
