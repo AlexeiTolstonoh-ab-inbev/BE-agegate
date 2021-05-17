@@ -119,7 +119,7 @@ console.log(ageInMs)
 								<img className={styles.logoImage} src="https://abibewebshop.vtexassets.com/assets/vtex.file-manager-graphql/images/b51b748e-9c50-4248-9b51-68846a2d8359___014546075148f2f1404a41002ba78895.png"></img>
 						</div>
 						{isAccess ? <div className={styles.ageGateUnderAge}>
-							<p className={styles.logoText}>{langueage === 'en' ? `Are you over Legal Drinking Age?` : langueage === 'fr' ? `Avez-vous dépassé l'âge légal pour boire?` : `Bent u ouder dan de wettelijke drinkleeftijd?`}</p>
+							<p className={styles.logoText}>{langueage === 'en' ? `Are you over Legal Drinking Age?` : langueage === 'fr' ? `ÊTES-VOUS EN ÂGE LÉGAL DE BOIRE DE L'ALCOOL ?` : `Bent u ouder dan de wettelijke drinkleeftijd?`}</p>
 								<p  className={styles.ageQuestion}>{langueage === 'en' ? `Please enter your date of birth` : langueage === 'fr' ? 'Veuillez entrer votre date de naissance' : 'Bent u 18 jaar of ouder ?'}</p>
 							<div className={styles.inputContainer}>
 							<input ref={dayInput} className={styles.dataInput} onChange={e =>  changeDay(e)} autoFocus  type="text" name="agegate-d" maxLength={2} placeholder={langueage === 'fr'? 'jj' : 'dd'} tabIndex={0}></input>
@@ -127,7 +127,7 @@ console.log(ageInMs)
 							<input ref={yearInput} className={styles.dataInput} onChange={e => changeYear(e)}type="text" name="agegate-y" maxLength={4} placeholder={langueage === 'fr'? 'aaaa' : langueage === 'nl'? 'jjjj' : 'yyyy'} tabIndex={0}></input>
 						</div>
 							<input className={styles.checkboxRemember} id="remember" type="checkbox" onChange={()=> setRemember(!isRemember)}></input>
-							<label htmlFor={'remember'} className={styles.ageLable}>{langueage === 'en' ? `Remember me` : langueage === 'fr' ? 'Souviens-toi de moi' : 'Onthoud mij'}</label>
+							<label htmlFor={'remember'} className={styles.ageLable}>{langueage === 'en' ? `Remember me` : langueage === 'fr' ? 'Se souvenir de moi' : 'Onthoud mij'}</label>
 
 							 <button ref={rememberMeCheckbox} className={styles.ageGateButton} onClick={onClickConfirm}>
 								{langueage === 'en' ? `CONTINUE` : langueage === 'fr' ? 'CONTINUER' : 'DOORGAAN'}
